@@ -72,7 +72,6 @@
     var isEqualPush = false; //＝を押した後の処理かの判定。押したらtrue
     var inputArray = []; //数値と演算子を交互に格納する
     var formula = ''; //途中式
-    var tax = 1.1; //消費税
 
     ///<summary>
     ///数字キーを押したときの処理を行います
@@ -197,6 +196,7 @@
         return tmpArray;
     }
 
+        
     function subDisp(view, dummy) {
         if (view == '' || arguments.length == 2) {
             document.getElementById('subDisplay').value = view;
