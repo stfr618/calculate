@@ -197,23 +197,6 @@
         return tmpArray;
     }
 
-    ///<summary>
-    ///Taxキーを押したときの処理を行います
-    ///</summary>
-    function addTax() {
-        if (isEqualPush == false) {
-            if (isFinite(input)) {
-                input = parseFloat(input) * tax;
-                disp(input);
-            }
-        } else {
-            var tmpValue = eval(formula);
-            formula = Math.floor(tmpValue * tax);
-            console.log(formula);
-            disp(formula);
-        }
-    }
-
     function subDisp(view, dummy) {
         if (view == '' || arguments.length == 2) {
             document.getElementById('subDisplay').value = view;
@@ -236,9 +219,6 @@
             </td>
             <td>
                 <button class="other" onclick="plusminus();">+/-</button>
-            </td>
-            <td>
-                <button class="other" onclick="addTax();">Tax</button>
             </td>
             <td>
                 <button class="operator" onclick="calc('/');">÷</button>
