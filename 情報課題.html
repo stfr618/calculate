@@ -1,0 +1,65 @@
+<html>
+<head>
+    <center>
+        <h1><strong>単語テスト</strong></h1>
+    </center>
+</head>    
+<script>
+    word = new Array(
+    "オオカミ","wolf",
+    "を育てる;(物･物体)を上げる;(問題など)を提起する;(資金)を集める","raise",
+    "雌(の)女性(の)","female",
+    "誕生","birth",
+    "掘る;探求する","dig",
+    "穴","hole",
+    "の内部に;の範囲内で;～以内に","within",
+    "する間に;の間ずっと;その一方で","while",
+    "狩る;捜す 狩り;探索","hunt",
+    "その代わりに","instead"
+    );
+
+    counter = 0;
+    number = word.length / 2;
+    order = new Array(number);
+    correct = 0;
+
+    function table(){
+        for(i=0; i<number; i++) order[i] = i;
+        for(i=0; i<500; i++){
+            j = Math.floor(Math.random() * number);
+            k = Math.floor(Math.random() * number);
+            temp = order[j];
+            order[j] = order[k];
+            order[k] = temp;
+        }
+    }
+    
+    function question(){
+        if( counter==0 ) table();
+        answer = prompt("\n問題：" +word[order[counter]*2],"");
+        if( answer != null ){
+            if( answer == word[order[counter]*2+1] ){
+                correct++;
+            }else{
+                alert("はずれ!答えは"+word[order[counter]*2+1]+"!");
+            }
+            if(counter==number-1){
+                score = Math.floor(correct*100/number);
+                alert("終了\n"+number+"問中"+correct+"問正解\n"+score+"%");
+                counter=0;
+                correct=0;
+            }else{
+                counter++;
+                question();
+            }
+        }else{
+            counter=0;
+            correct=0;
+            alert("中断");
+        }
+    }
+</script>    
+<div style="margin-left:25%;margin-right:25%;margin-top:5%;">
+    <input type="button" style="width:100%; padding:5px; font-size:50px" value="開始" onclick="question()">
+</div>    
+</html>
